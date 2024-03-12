@@ -1,0 +1,84 @@
+[
+  {
+    "battery": {
+      "format": "{capacity}% {icon}",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "interval": 60,
+      "max-length": 25,
+      "states": {
+        "critical": 15,
+        "warning": 30
+      }
+    },
+    "clock": {
+      "format": "{:%H:%M}",
+      "interval": 60,
+      "max-length": 25
+    },
+    "height": 25,
+    "hyprland/workspaces": {
+      "active-only": false,
+      "all-outputs": false,
+      "format": "{icon}",
+      "format-icons": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10": "10",
+      },
+      "on-click": "activate",
+      "sort-by-number": true
+    },
+    "layer": "top",
+    "modules-center": [],
+    "modules-left": [
+      "clock",
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+      "tray",
+      "network",
+      "pulseaudio",
+      "battery"
+    ],
+    "network": {
+      "format": "{ifname}",
+      "format-disconnected": "",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "format-wifi": "{essid} ({signalStrength}%) ",
+      "max-length": 50,
+      "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+      "tooltip-format-disconnected": "Disconnected",
+      "tooltip-format-ethernet": "{ifname} ",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%) "
+    },
+    "output": [
+      "eDP-1",
+      "HDMI-A-1"
+    ],
+    "position": "top",
+    "pulseaudio": {
+      "format": "{volume}% {icon}",
+      "format-icons": [
+        "vol",
+        "vol"
+      ],
+      "format-muted": "mute"
+    },
+    "tray": {
+      "spacing": 10
+    }
+  }
+]

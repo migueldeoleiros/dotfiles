@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Get the status of the Master channel
+status=$(amixer get Master | grep -o "\[on\]" | head -n 1)
+
+# Check if the status contains "[on]" (not muted)
+if [[ "$status" == "[on]" ]]; then
+    echo "on"
+else
+    echo "off"
+fi

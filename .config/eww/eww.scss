@@ -1,0 +1,117 @@
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+}
+
+//Global Styles
+.bar1 {
+  background-color: #090a11;
+  color: #d4dae8;
+  padding: 10px;
+}
+.bar2 {
+  background-color: #090a11;
+  color: #d4dae8;
+  padding: 10px;
+}
+
+.calendar {
+  background-color: #090a11;
+  color: #d4dae8;
+  border-radius: 10px;
+}
+
+// Styles on classes (see eww.yuck for more information)
+
+.volume scale trough highlight {
+  all: unset;
+  background-color: #1A63F4;
+  color: #000000;
+  border-radius: 10px;
+}
+.volume scale trough {
+  all: unset;
+  background-color: #404159;
+  border-radius: 50px;
+  min-width: 5px;
+  min-height: 50px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+.volume-mute scale trough highlight {
+  all: unset;
+  background-color: #0A2966;
+  color: #000000;
+  border-radius: 10px;
+}
+.volume-mute scale trough {
+  all: unset;
+  background-color: #404159;
+  border-radius: 50px;
+  min-width: 5px;
+  min-height: 50px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+.battery scale trough highlight {
+  all: unset;
+  background-color: #14CC4B;
+  color: #000000;
+  border-radius: 10px;
+}
+.battery scale trough {
+  all: unset;
+  background-color: #404159;
+  border-radius: 50px;
+  min-width: 5px;
+  min-height: 50px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+.workspaces button:hover {
+  color: #7BA3F4;
+}
+
+.wsp-empty {
+  color: #242532
+}
+.wsp-inactive {
+  color: #AFB4C0;
+}
+.wsp-active {
+  background-color: #242532;
+  border-radius: 5px;
+  color: #d4dae8;
+}
+
+.time {
+  margin-top: 5px;
+}
+.time button:hover {
+  color: #7BA3F4;
+}
+
+.network {
+  color: #d4dae8;
+}
+
+.cal-box {
+  margin: 10px;
+}
+.cal {
+  color: #AFB4C0;
+}
+calendar.header {
+  color: #7BA3F4;
+  font-weight: bold;
+}
+calendar.highlight {
+  color: #EA75CB;
+  font-weight: bold;
+}
+calendar:selected{
+  background-color: #404159;
+  border-radius: 50px;
+  color: #d4dae8;
+}

@@ -1,0 +1,55 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: Source Code Pro;
+  font-size: 13;
+}
+
+window#waybar {
+  background: #090a11;
+  color: #d4dae8;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: #afb4c0;
+}        
+
+#workspaces button.active {
+  background-color: #242532;
+  color: #d4dae8;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+  padding: 0 10px;
+  color: #d4dae8;
+}
+
+#tray {
+    background-color: #090a11;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #242532;
+}
+

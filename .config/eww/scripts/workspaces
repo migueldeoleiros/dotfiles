@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Retrieve workspace information
+workspaces() {
+	ACTIVE=$(hyprctl activeworkspace -j | jq '.id')
+
+	WORKSPACE_INFO=$(hyprctl workspaces -j |
+                     jq --arg active "$ACTIVE" 'map({id: .id, windows: .windows, monitor: .monitorID, active:$active})')
+
+    TEMPLATE=$(seq 1 9 | jq -n --arg active "$ACTIVE" '[inputs | {id: ., windows: 0, monitor: -1, active:$active}]')
+
+    jq -n -Mc --argjson info "$WORKSPACE_INFO" --argjson template "$TEMPLATE" \
+              '$info as $winfo | $template as $miss | 
+               ($winfo + $miss) | group_by(.id) | map(.[0])'
+}
+
+workspaces
+
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+	workspaces
+done

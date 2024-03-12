@@ -1,0 +1,26 @@
+#!/bin/sh
+
+calendar() {
+    local LOCK_FILE="$HOME/.cache/eww/eww-calendar.lock"
+    local MONITOR="$1"
+
+    if [[ ! -f "$LOCK_FILE" ]]; then
+        touch "$LOCK_FILE"
+        eww open calendar --arg monitor="$MONITOR"
+    else
+        eww close calendar
+        rm "$LOCK_FILE"
+    fi
+}
+
+if [ "$1" = "launcher" ]; then
+    rofi -show drun
+elif [ "$1" = "wifi" ]; then
+    networkmanager_dmenu
+elif [ "$1" = "audio" ]; then
+    pavucontrol
+elif [ "$1" = "calendar" ]; then
+    if [[ -n "$2" ]] then
+      calendar "$2"
+    fi
+fi

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Get ethernet ip
+eth=$(ifconfig enp3s0 | awk '/inet / {print $2}')
+wifi=$(iwconfig wlan0 | awk -F'[/= ]' '/Link Quality/ {print $13 / $14}')
+
+# Return json
+if [[ -n $eth ]]; then
+  echo '{"network": "eth", "ip": "'"$eth"'"}' | jq -Mc .
+elif [[ -n $wifi ]]; then
+  echo '{"network": "wifi", "conn": '"$wifi"'}' | jq -Mc .
+fi

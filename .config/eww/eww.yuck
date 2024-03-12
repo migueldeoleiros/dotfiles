@@ -1,0 +1,114 @@
+;; -*- mode: lisp -*-
+
+(defwidget bar [monitor]
+  (box :orientation "v" 
+    (time :monitor monitor)
+    (workspaces :monitor monitor)
+    (sidestuff)
+    ))
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "v" :space-evenly false :valign "end"
+    (network)
+    (box " ")
+    (metric :label {audio == "on" ? "󰕾" : "󰖁"}
+            :value volume
+            :class {audio == "on" ? "volume" : "volume-mute"}
+            :onchange "amixer sset Master {}%")
+    (metric :label "󰁹"
+            :value {EWW_BATTERY.BAT1.capacity}
+            :class "battery"
+            :onchange "")
+  ))
+
+(deflisten workspaces "scripts/workspaces")
+(defwidget workspaces [monitor]
+  (box :orientation "v" :class "button"
+       :space-evenly false
+    (for entry in { workspaces ?: "[]" }
+      (button
+        :onclick "hyprctl dispatch workspace ${entry.id}"
+
+        :class "workspaces ${ 
+          entry.monitor == monitor ?
+            (entry.id == entry.active ? "wsp-active"
+            : (entry.windows >= 1 ? "wsp-inactive" 
+              : "wsp-empty")) : "wsp-empty"
+        }"
+
+        { entry.id }
+      )
+    )
+  )
+)
+
+(defwidget metric [label value onchange class]
+  (box :orientation "v"
+       :class class
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 101
+           :flipped true 
+           :orientation "v" 
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+(defpoll volume :interval "0.5s"
+  "amixer sget Master | awk -F '[^0-9]+' '/Left:/{print $3}'")
+
+(defpoll audio :interval "0.5s"
+  "scripts/ismute")
+
+(defpoll hour :interval "10s" "date +%H")
+(defpoll min  :interval "10s" "date +%M")
+(defwidget time [monitor]
+  (box :class "time"
+       (button :onclick "scripts/popup calendar ${monitor}" 
+               (box :orientation "v"
+                    :space-evenly false
+                    hour min)
+       )
+   )
+)
+
+(defpoll net :interval "2s" "scripts/network")
+(defwidget network []
+    (box :class "network"
+         :orientation "v"
+         (button
+          :onclick "networkmanager_dmenu" 
+          { net.network == "eth" ? "󰈀" :
+            (net.network == "wifi" ?
+            (net.conn > 0.75 ? "󰤨" :
+            (net.conn > 0.50 ? "󰤥" :
+            (net.conn > 0.25 ? "󰤢" : "󰤟")))
+            : "󰤭")}
+         )
+     )
+)
+
+(defwindow bar1
+  :monitor 0
+  :windowtype "dock"
+  :exclusive true
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "30px"
+                      :height "100%"
+                      :anchor "left center")
+  (bar :monitor 0))
+
+(defwindow bar2
+  :monitor 1
+  :windowtype "dock"
+  :exclusive true
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "30px"
+                      :height "100%"
+                      :anchor "left center")
+  (bar :monitor 1))
+
+(include "calendar.yuck")
