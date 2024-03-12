@@ -1,0 +1,5 @@
+* dotfiles
+This repository contains my current configurations for my linux desktop
+
+| Hardware | Acer Nitro AN515-45 |
+| OS       | Arch Linux          |
