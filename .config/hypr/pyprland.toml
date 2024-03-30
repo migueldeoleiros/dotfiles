@@ -6,4 +6,13 @@
     command = "kitty --class kitty-scratchpad"
     class = "kitty-scratchpad"
     size = "40% 75%"
+    margin = 10
+    lazy = true
+
+[scratchpads.music]
+    animation = "fromRight"
+    command = "amberol"
+    class = "io.bassi.Amberol"
+    size = "40% 75%"
+    margin = 10
     lazy = true
