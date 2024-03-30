@@ -5,7 +5,7 @@ workspaces() {
 	ACTIVE=$(hyprctl activeworkspace -j | jq '.id')
 
 	WORKSPACE_INFO=$(hyprctl workspaces -j |
-                     jq --arg active "$ACTIVE" 'map({id: .id, windows: .windows, monitor: .monitorID, active:$active})')
+                     jq --arg active "$ACTIVE" 'map({id: .id, windows: .windows, monitor: .monitorID, active:$active}) | map(select(.id | tonumber > 0)) ')
 
     TEMPLATE=$(seq 1 9 | jq -n --arg active "$ACTIVE" '[inputs | {id: ., windows: 0, monitor: -1, active:$active}]')
 
