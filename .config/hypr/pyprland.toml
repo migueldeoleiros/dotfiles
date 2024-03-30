@@ -1,0 +1,9 @@
+[pyprland]
+    plugins = ["scratchpads"]
+
+[scratchpads.term]
+    animation = "fromRight"
+    command = "kitty --class kitty-scratchpad"
+    class = "kitty-scratchpad"
+    size = "40% 75%"
+    lazy = true
