@@ -37,8 +37,9 @@
 }
 #window {
     background-color: @background;
-    border:           0;
+    border:           1;
     padding:          20;
+    border-radius:    10;
 }
 #mainbox {
     border:  0;
@@ -63,6 +64,7 @@
 #element {
     border:  0;
     padding: 2px ;
+    border-radius:    5;
 }
 #element-text {
     background-color: inherit;
