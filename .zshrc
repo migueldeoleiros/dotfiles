@@ -21,6 +21,10 @@ export PATH=/opt/flutter/bin:$PATH
 #aliases
 source $HOME/.alias
 
+#set text editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
