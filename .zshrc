@@ -16,7 +16,7 @@ unsetopt EXTENDED_HISTORY
 setopt autocd
 
 # flutter config
-export PATH=/opt/flutter/bin:$PATH
+export PATH=/usr/bin/flutter/bin:$PATH
 
 #aliases
 source $HOME/.alias
