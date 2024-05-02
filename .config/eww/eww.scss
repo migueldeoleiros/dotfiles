@@ -4,19 +4,19 @@
 
 //Global Styles
 .bar1 {
-  background-color: rgb(9,10,17, 60%);
-  color: #d4dae8;
+  background-color: rgb(15,15,15, 60%);
+  color: #e0e0e0;
   padding: 10px;
 }
 .bar2 {
-  background-color: rgb(9,10,17, 60%);
-  color: #d4dae8;
+  background-color: rgb(15,15,15, 60%);
+  color: #e0e0e0;
   padding: 10px;
 }
 
 .calendar {
-  background-color: rgb(9,10,17, 60%);
-  color: #d4dae8;
+  background-color: rgb(15,15,15, 60%);
+  color: #e0e0e0;
   border-radius: 10px;
 }
 
@@ -30,7 +30,7 @@
 }
 .volume scale trough {
   all: unset;
-  background-color: #404159;
+  background-color: #4b4b4b;
   border-radius: 50px;
   min-width: 5px;
   min-height: 50px;
@@ -45,7 +45,7 @@
 }
 .volume-mute scale trough {
   all: unset;
-  background-color: #404159;
+  background-color: #4b4b4b;
   border-radius: 50px;
   min-width: 5px;
   min-height: 50px;
@@ -61,7 +61,7 @@
 }
 .battery scale trough {
   all: unset;
-  background-color: #404159;
+  background-color: #4b4b4b;
   border-radius: 50px;
   min-width: 5px;
   min-height: 50px;
@@ -74,15 +74,15 @@
 }
 
 .wsp-empty {
-  color: #242532
+  color: #2d2d2d
 }
 .wsp-inactive {
   color: #AFB4C0;
 }
 .wsp-active {
-  background-color: #242532;
+  background-color: #2d2d2d;
   border-radius: 5px;
-  color: #d4dae8;
+  color: #e0e0e0;
 }
 
 .time {
@@ -93,7 +93,7 @@
 }
 
 .network {
-  color: #d4dae8;
+  color: #e0e0e0;
 }
 
 .cal-box {
@@ -111,7 +111,7 @@ calendar.highlight {
   font-weight: bold;
 }
 calendar:selected{
-  background-color: #404159;
+  background-color: #4b4b4b;
   border-radius: 50px;
-  color: #d4dae8;
+  color: #e0e0e0;
 }

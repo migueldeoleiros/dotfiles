@@ -460,7 +460,7 @@ c.colors.tabs.selected.even.bg = '#0a091c'
  # Type: Bool
 
 #import theme 
-import themes.entropia as theme
+import themes.entropiaMono as theme
 
 # Load existing settings made via :set
 config.load_autoconfig()

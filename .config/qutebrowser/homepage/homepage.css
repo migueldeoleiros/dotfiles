@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
-    background-color: #13141B;
+    background-color: #191919;
     margin: 0px;
 }
 
@@ -19,7 +19,7 @@ body {
     font-family: sans-serif;
     font-size: 4.0rem;
     font-family: "Roboto";
-    color: #D4DaE8;
+    color: #e0e0e0;
     margin-bottom: .25em;
 }
 
@@ -54,7 +54,7 @@ body {
 
 .bookmark-set{
     padding: 1em;
-    background-color: #090a11;
+    background-color: #0f0f0f;
     border-radius: 3px;
     font-family: "Roboto Mono";
     font-size: .85rem;
@@ -71,12 +71,12 @@ body {
     font-family: "Roboto";
     font-size: 1.2rem;
     font-weight: 600;
-    color: #D4DaE8;
+    color: #e0e0e0;
     margin: 0em 0em .35em 0em;
 }
 .bookmark {
     text-decoration: none;
-    color: #AFB4C0;
+    color: #b9b9b9;
     display:block;
     margin: .4em 0em;
 }
