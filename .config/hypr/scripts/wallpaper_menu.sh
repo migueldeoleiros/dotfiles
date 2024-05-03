@@ -35,9 +35,8 @@ selection=$(get_selection "$wallpaper_dir")
 echo "$selection"
 
 if [[ -n $selection ]]; then
-    killall swaybg
-    swaybg --image $selection --mode fill
-    echo "swaybg --image $selection --mode fill"
-    echo "swaybg --image $selection --mode fill" > $wallpaper_script
+    swww img $selection --transition-type center
+    echo "swww img $selection --transition-type center"
+    echo "swww img $selection" > $wallpaper_script
     chmod +x "$wallpaper_script"
 fi
