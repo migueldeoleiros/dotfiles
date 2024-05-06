@@ -97,7 +97,7 @@
   :exclusive true
   :geometry (geometry :x "0%"
                       :y "0%"
-                      :width "30px"
+                      :width "40px"
                       :height "100%"
                       :anchor "left center")
   (bar :monitor 0))
@@ -108,7 +108,7 @@
   :exclusive true
   :geometry (geometry :x "0%"
                       :y "0%"
-                      :width "30px"
+                      :width "40px"
                       :height "100%"
                       :anchor "left center")
   (bar :monitor 1))
