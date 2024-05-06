@@ -9,6 +9,8 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "v" :space-evenly false :valign "end"
+    (systray :orientation "v" :space-evenly false :icon-size 20)
+    (box " ")
     (network)
     (box " ")
     (metric :label {audio == "on" ? "󰕾" : "󰖁"}
