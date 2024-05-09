@@ -15,9 +15,6 @@ setopt SHARE_HISTORY
 unsetopt EXTENDED_HISTORY
 setopt autocd
 
-# flutter config
-export PATH=/usr/bin/flutter/bin:$PATH
-
 #aliases
 source $HOME/.alias
 
