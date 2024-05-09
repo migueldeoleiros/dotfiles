@@ -81,7 +81,8 @@
          :orientation "v"
          (button
           :onclick "networkmanager_dmenu" 
-          { net.network == "eth" ? "󰈀" :
+          {net == "null" ? "󰤭" : 
+            net.network == "eth" ? "󰈀" :
             (net.network == "wifi" ?
             (net.conn > 0.75 ? "󰤨" :
             (net.conn > 0.50 ? "󰤥" :

@@ -9,4 +9,6 @@ if [[ -n $eth ]]; then
   echo '{"network": "eth", "ip": "'"$eth"'"}' | jq -Mc .
 elif [[ -n $wifi ]]; then
   echo '{"network": "wifi", "conn": '"$wifi"'}' | jq -Mc .
+else
+    echo 'null'
 fi
