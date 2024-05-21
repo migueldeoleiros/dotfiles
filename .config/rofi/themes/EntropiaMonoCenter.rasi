@@ -16,9 +16,9 @@
     alternate-urgent-background: rgba ( 0, 0, 0, 0 % );
     active-foreground:           #14B1CC;
     lightbg:                     #e0e0e0;
-    selected-active-foreground:  #13141B;
+    selected-active-foreground:  #191919;
     alternate-active-background: rgba ( 0, 0, 0, 0 % );
-    background:                  rgb(9,10,17, 60 %);
+    background:                  rgb(15,15,15, 60 %);
     bordercolor:                 @foreground;
     alternate-normal-foreground: @foreground;
     normal-background:           rgba ( 0, 0, 0, 0 % );

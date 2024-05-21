@@ -1,7 +1,7 @@
 def draw(c, options = {}):
     palette = {
         "background" : "#0f0f0f",
-        "background-alt" : "#13141B",
+        "background-alt" : "#191919",
         "background-attention" : "#2d2d2d",
         "border" : "#0f0f0f",
         "current-line" : "#4b4b4b",
