@@ -11,8 +11,9 @@
 
 [scratchpads.music]
     animation = "fromRight"
-    command = "amberol"
-    class = "io.bassi.Amberol"
+    command = "tauon"
+    match_by = "class"
+    class = "tauonmb"
     size = "40% 75%"
     margin = 10
     lazy = true
