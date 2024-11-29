@@ -58,7 +58,7 @@
            :onchange onchange)))
 
 (defpoll volume :interval "0.5s"
-  "amixer sget Master | awk -F '[^0-9]+' '/Left:/{print $3}'")
+  "amixer sget Master | awk -F '[^0-9]+' '/Left:/ && !/Rear/ && !/Side/ {print $3}'")
 
 (defpoll audio :interval "0.5s"
   "scripts/ismute")
