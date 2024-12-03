@@ -5,7 +5,7 @@
 #simple script that toggles a commented line, in this case for switching between extending or sharing screen in hyprland
 
 # Set the file path and the line number to toggle
-FILE="/home/miguel/.config/hypr/hyprland.conf"
+FILE="/home/miguel/.dotfiles/.config/hypr/hyprland.conf"
 LINE_NUMBER=5
 
 # Use sed to toggle the comment on the specified line
