@@ -1,58 +1,72 @@
 ;; -*- mode: lisp -*-
 
-(defwidget bar [monitor]
-  (box :orientation "v" 
-    (time :monitor monitor)
-    (workspaces :monitor monitor)
-    (sidestuff)
-    ))
+(defwidget bar []
+  (box :orientation "h" 
+       (time)
+       (workspaces)
+       (sidestuff)
+   ))
 
-(defwidget sidestuff []
-  (box :class "sidestuff" :orientation "v" :space-evenly false :valign "end"
-    (systray :orientation "v" :space-evenly false :icon-size 20)
-    (box " ")
-    (network)
-    (box " ")
-    (metric :label {audio == "on" ? "󰕾" : "󰖁"}
-            :value volume
-            :class {audio == "on" ? "volume" : "volume-mute"}
-            :onchange "amixer sset Master {}%")
-    (metric :label "󰁹"
-            :value {EWW_BATTERY.BAT1.capacity}
-            :class "battery"
-            :onchange "")
-  ))
-
-(deflisten workspaces "scripts/workspaces")
-(defwidget workspaces [monitor]
-  (box :orientation "v" :class "button"
-       :space-evenly false
-    (for entry in { workspaces ?: "[]" }
-      (button
-        :onclick "hyprctl dispatch workspace ${entry.id}"
-
-        :class "workspaces ${ 
-          entry.monitor == monitor ?
-            (entry.id == entry.active ? "wsp-active"
-            : (entry.windows >= 1 ? "wsp-inactive" 
-              : "wsp-empty")) : "wsp-empty"
-        }"
-
-        { entry.id }
-      )
-    )
+(defpoll hour :interval "10s" "date +%H")
+(defpoll min  :interval "10s" "date +%M")
+(defwidget time []
+  (box :class "time"
+       :halign "start"
+       (button :onclick "scripts/popup calendar 1" 
+               (box :orientation "h"
+                    :space-evenly false
+                    hour ":" min)
+       )
   )
 )
 
+(defwidget sidestuff []
+  (box :class "sidestuff"
+       :space-evenly true
+       :halign "end"
+       (box :space-evenly false :halign "end" (systray :orientation "h" :space-evenly false :icon-size 20))
+       (network)
+       (metric :label {audio == "on" ? "󰕾" : "󰖁"}
+               :value volume
+               :class {audio == "on" ? "volume" : "volume-mute"}
+               :onchange "amixer sset Master {}%")
+       (metric :label "󰁹"
+               :value {EWW_BATTERY.BAT1.capacity}
+               :class "battery"
+               :onchange "")
+  ))
+
+(deflisten workspaces "scripts/workspaces")
+(defwidget workspaces []
+  (box :orientation "h" :class "button"
+       :space-evenly false
+       :halign "center"
+       (for entry in { workspaces ?: "[]" }
+         (button
+           :onclick "hyprctl dispatch workspace ${entry.id}"
+  
+           :class "${entry.monitor} ${ 
+             entry.id == entry.active ? "wsp-${entry.monitor}-active"
+             : (entry.windows >= 1 ? "wsp-${entry.monitor}-inactive" 
+               : "wsp-empty")
+           }"
+  
+           { entry.id }
+         )
+       )
+  )
+)
+
+
 (defwidget metric [label value onchange class]
-  (box :orientation "v"
+  (box :orientation "h"
        :class class
        :space-evenly false
     (box :class "label" label)
     (scale :min 0
            :max 101
-           :flipped true 
-           :orientation "v" 
+           :flipped false 
+           :orientation "h" 
            :active {onchange != ""}
            :value value
            :onchange onchange)))
@@ -63,22 +77,10 @@
 (defpoll audio :interval "0.5s"
   "scripts/ismute")
 
-(defpoll hour :interval "10s" "date +%H")
-(defpoll min  :interval "10s" "date +%M")
-(defwidget time [monitor]
-  (box :class "time"
-       (button :onclick "scripts/popup calendar ${monitor}" 
-               (box :orientation "v"
-                    :space-evenly false
-                    hour min)
-       )
-   )
-)
-
 (defpoll net :interval "2s" "scripts/network")
 (defwidget network []
     (box :class "network"
-         :orientation "v"
+         :orientation "h"
          (button
           :onclick "networkmanager_dmenu" 
           {net == "null" ? "󰤭" : 
@@ -92,26 +94,15 @@
      )
 )
 
-(defwindow bar1
-  :monitor 0
-  :windowtype "dock"
-  :exclusive true
-  :geometry (geometry :x "0%"
-                      :y "0%"
-                      :width "40px"
-                      :height "100%"
-                      :anchor "left center")
-  (bar :monitor 0))
-
-(defwindow bar2
+(defwindow bar []
   :monitor 1
   :windowtype "dock"
   :exclusive true
   :geometry (geometry :x "0%"
                       :y "0%"
-                      :width "40px"
-                      :height "100%"
-                      :anchor "left center")
-  (bar :monitor 1))
+                      :width "100%"
+                      :height "40px"
+                      :anchor "top center")
+  (bar))
 
 (include "calendar.yuck")

@@ -3,10 +3,6 @@
 }
 
 //Global Styles
-.bar {
-  background-color: rgb(15,15,15, 60%);
-  color: #e0e0e0;
-}
 .bar1 {
   background-color: rgb(15,15,15, 60%);
   color: #e0e0e0;
@@ -26,9 +22,6 @@
 
 // Styles on classes (see eww.yuck for more information)
 
-.volume {
-    font-size: 20;
-}
 .volume scale trough highlight {
   all: unset;
   background-color: #1A63F4;
@@ -39,15 +32,10 @@
   all: unset;
   background-color: #4b4b4b;
   border-radius: 50px;
-  min-width: 80px;
-  min-height: 8px;
-  margin-left: 8px;
-  margin-right: 20px;
-  padding: 2px;
-}
-
-.volume-mute {
-    font-size: 20;
+  min-width: 5px;
+  min-height: 50px;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 .volume-mute scale trough highlight {
   all: unset;
@@ -59,16 +47,12 @@
   all: unset;
   background-color: #4b4b4b;
   border-radius: 50px;
-  min-width: 80px;
-  min-height: 8px;
-  margin-left: 8px;
-  margin-right: 20px;
-  padding: 2px;
+  min-width: 5px;
+  min-height: 50px;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
-.battery {
-    font-size: 18;
-}
 .battery scale trough highlight {
   all: unset;
   background-color: #14CC4B;
@@ -79,15 +63,10 @@
   all: unset;
   background-color: #4b4b4b;
   border-radius: 50px;
-  min-width: 80px;
-  min-height: 8px;
-  margin-left: 8px;
-  margin-right: 20px;
-  padding: 2px;
-}
-
-.network {
-    font-size: 18;
+  min-width: 5px;
+  min-height: 50px;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
 .workspaces button:hover {
@@ -95,56 +74,19 @@
 }
 
 .wsp-empty {
-  color: #2d2d2d;
-  padding: 10px;
+  color: #2d2d2d
 }
-.wsp-0-inactive {
-  color: #7ba3f4;
-  padding: 10px;
-  font-weight: bold;
+.wsp-inactive {
+  color: #AFB4C0;
 }
-.wsp-1-inactive {
-  color: #d1526d;
-  padding: 10px;
-  font-weight: bold;
-}
-.wsp-2-inactive {
-  color: #57b272;
-  padding: 10px;
-  font-weight: bold;
-}
-.wsp-0-active {
-  background-color: #7ba3f4;
-  border-radius: 30px;
-  min-width: 30px;
-  min-height: 30px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: #000000;
-}
-.wsp-1-active {
-  background-color: #d1526d;
-  border-radius: 30px;
-  min-width: 30px;
-  min-height: 30px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: #000000;
-}
-.wsp-2-active {
-  background-color: #57b272;
-  border-radius: 30px;
-  min-width: 30px;
-  min-height: 30px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: #000000;
+.wsp-active {
+  background-color: #2d2d2d;
+  border-radius: 5px;
+  color: #e0e0e0;
 }
 
 .time {
-  margin-left: 15px;
-  font-size: 16;
-  font-weight: bold;
+  margin-top: 5px;
 }
 .time button:hover {
   color: #7BA3F4;
