@@ -1,4 +1,3 @@
-
 ;; -*- mode: lisp -*-
 
 (defwidget bar []
@@ -25,7 +24,7 @@
   (box :class "sidestuff"
        :space-evenly true
        :halign "end"
-       (box :space-evenly false :halign "end" (systray :orientation "h" :space-evenly false :icon-size 20))
+       (box :space-evenly false :halign "end" (systray :orientation "h" :space-evenly false :spacing 8 :icon-size 20))
        (network)
        (metric :label {audio == "on" ? "󰕾" : "󰖁"}
                :value volume
