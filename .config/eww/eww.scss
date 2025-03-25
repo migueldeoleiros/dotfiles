@@ -152,6 +152,21 @@
   color: #e0e0e0;
 }
 
+menu {
+  padding: 5px;
+  background-color: rgb(15,15,15, 60%);
+  color: #e0e0e0;
+  border-radius: 5px;
+
+  menuitem {
+    border-radius: 5px;
+    padding: 4px 8px;
+  }
+  menuitem:hover {
+    color: #7BA3F4;
+  }
+}
+
 .cal-box {
   margin: 10px;
 }
