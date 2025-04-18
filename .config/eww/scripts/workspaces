@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Define custom names for the workspaces
+CUSTOM_NAMES='["一", "二", "三", "四", "五", "六", "七", "八", "九"]'
+
 # Retrieve workspace information
 workspaces() {
 	ACTIVE=$(hyprctl activeworkspace -j | jq '.id')
@@ -9,9 +12,10 @@ workspaces() {
 
     TEMPLATE=$(seq 1 9 | jq -n --arg active "$ACTIVE" '[inputs | {id: ., windows: 0, monitor: -1, active:$active}]')
 
-    jq -n -Mc --argjson info "$WORKSPACE_INFO" --argjson template "$TEMPLATE" \
+    jq -n -Mc --argjson info "$WORKSPACE_INFO" --argjson template "$TEMPLATE" --argjson names "$CUSTOM_NAMES" \
               '$info as $winfo | $template as $miss | 
-               ($winfo + $miss) | group_by(.id) | map(.[0])'
+               ($winfo + $miss) | group_by(.id) | map(.[0]) |
+               map(. + {name: ($names[.id - 1] // "Unnamed")})'
 }
 
 workspaces

@@ -51,7 +51,7 @@
                : "wsp-empty")
            }"
   
-           { entry.id }
+           { entry.name }
          )
        )
   )
