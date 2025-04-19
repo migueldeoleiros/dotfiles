@@ -1,78 +1,28 @@
 * {
-  all: unset; //Unsets everything so you can style everything from scratch
+  all: unset; // Unsets everything so you can style everything from scratch
 }
 
-//Global Styles
-.bar {
-  background-color: rgb(15,15,15, 60%);
-  color: #e0e0e0;
-}
-.bar-laptop {
-  background-color: rgb(15,15,15, 60%);
-  color: #e0e0e0;
-}
-.bar-main {
-  background-color: rgb(15,15,15, 60%);
+// Global Styles
+.bar, .bar-laptop, .bar-main, .calendar, menu {
+  background-color: rgba(15, 15, 15, 60%);
   color: #e0e0e0;
 }
 
 .calendar {
-  background-color: rgb(15,15,15, 60%);
-  color: #e0e0e0;
   border-radius: 10px;
 }
 
-// Styles on classes (see eww.yuck for more information)
-
-.volume {
-    font-size: 20;
-}
-.volume scale trough highlight {
-  all: unset;
-  background-color: #1A63F4;
-  color: #000000;
-  border-radius: 10px;
-}
-.volume scale trough {
-  all: unset;
-  background-color: #4b4b4b;
-  border-radius: 50px;
-  min-width: 80px;
-  min-height: 8px;
-  margin-left: 8px;
-  margin-right: 20px;
-  padding: 2px;
+// Shared styles for volume, volume-mute, and battery
+.volume, .volume-mute, .battery {
+  font-size: 20;
 }
 
-.volume-mute {
-    font-size: 20;
-}
-.volume-mute scale trough highlight {
-  all: unset;
-  background-color: #0A2966;
-  color: #000000;
-  border-radius: 10px;
-}
-.volume-mute scale trough {
-  all: unset;
-  background-color: #4b4b4b;
-  border-radius: 50px;
-  min-width: 80px;
-  min-height: 8px;
-  margin-left: 8px;
-  margin-right: 20px;
-  padding: 2px;
+.volume-mute, .battery {
+  font-size: 18;
 }
 
-.battery {
-    font-size: 18;
-}
-.battery scale trough highlight {
-  all: unset;
-  background-color: #14CC4B;
-  color: #000000;
-  border-radius: 10px;
-}
+.volume scale trough, 
+.volume-mute scale trough, 
 .battery scale trough {
   all: unset;
   background-color: #4b4b4b;
@@ -84,108 +34,129 @@
   padding: 2px;
 }
 
-.network {
-    font-size: 18;
+.volume scale trough highlight, 
+.volume-mute scale trough highlight, 
+.battery scale trough highlight {
+  all: unset;
+  border-radius: 10px;
 }
 
-.workspaces button:hover {
-  color: #7BA3F4;
+.volume scale trough highlight {
+  background-color: #1A63F4;
+  color: #000000;
+}
+
+.volume-mute scale trough highlight {
+  background-color: #0A2966;
+  color: #000000;
+}
+
+.battery scale trough highlight {
+  background-color: #14CC4B;
+  color: #000000;
+}
+
+// Network styles
+.network {
+  font-size: 18;
+  color: #e0e0e0;
+}
+
+// Workspace styles
+.wsp-empty, 
+.wsp-0-inactive, 
+.wsp-1-inactive, 
+.wsp-2-inactive {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 12;
 }
 
 .wsp-empty {
   color: #2d2d2d;
-  padding: 10px;
-  font-weight: bold;
-}
-.wsp-0-inactive {
-  color: #7ba3f4;
-  padding: 10px;
-  font-weight: bold;
-}
-.wsp-1-inactive {
-  color: #d1526d;
-  padding: 10px;
-  font-weight: bold;
-}
-.wsp-2-inactive {
-  color: #57b272;
-  padding: 10px;
-  font-weight: bold;
-}
-.wsp-0-active {
-  background-color: #7ba3f4;
-  border-radius: 30px;
-  min-width: 30px;
-  min-height: 30px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: #000000;
-  font-weight: bold;
-}
-.wsp-1-active {
-  background-color: #d1526d;
-  border-radius: 30px;
-  min-width: 30px;
-  min-height: 30px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: #000000;
-  font-weight: bold;
-}
-.wsp-2-active {
-  background-color: #57b272;
-  border-radius: 30px;
-  min-width: 30px;
-  min-height: 30px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: #000000;
-  font-weight: bold;
 }
 
+.wsp-0-inactive {
+  color: #7ba3f4;
+}
+
+.wsp-1-inactive {
+  color: #d1526d;
+}
+
+.wsp-2-inactive {
+  color: #57b272;
+}
+
+.wsp-0-active, 
+.wsp-1-active, 
+.wsp-2-active {
+  border-radius: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 12;
+}
+
+.wsp-0-active {
+  background-color: #7ba3f4;
+}
+
+.wsp-1-active {
+  background-color: #d1526d;
+}
+
+.wsp-2-active {
+  background-color: #57b272;
+}
+
+// Time styles
 .time {
   margin-left: 15px;
   font-size: 16;
   font-weight: bold;
 }
-.time button:hover {
+
+.time button:hover, 
+.workspaces button:hover, 
+menu menuitem:hover {
   color: #7BA3F4;
 }
 
-.network {
-  color: #e0e0e0;
-}
-
+// Menu styles
 menu {
   padding: 5px;
-  background-color: rgb(15,15,15, 60%);
-  color: #e0e0e0;
   border-radius: 5px;
 
   menuitem {
     border-radius: 5px;
     padding: 4px 8px;
   }
-  menuitem:hover {
-    color: #7BA3F4;
-  }
 }
 
+// Calendar styles
 .cal-box {
   margin: 10px;
 }
+
 .cal {
   color: #AFB4C0;
 }
+
 calendar.header {
   color: #7BA3F4;
   font-weight: bold;
 }
+
 calendar.highlight {
   color: #EA75CB;
   font-weight: bold;
 }
-calendar:selected{
+
+calendar:selected {
   background-color: #4b4b4b;
   border-radius: 50px;
   color: #e0e0e0;
