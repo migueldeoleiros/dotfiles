@@ -25,6 +25,15 @@ alias find="fd"
 
 #use ranger to move around directories
 alias rn=". ranger"
+#use yazi to move around directories
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 #process check
 alias psuser="ps -u miguel"
