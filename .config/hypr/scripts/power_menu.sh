@@ -7,12 +7,12 @@
 
 rofi_cmd(){
     rofi \
-    -theme-str 'window {width: 300px; height: 170;}' \
+    -theme-str 'window {width: 300px; height: 190;}' \
     -dmenu -i \
     -p "POWER MENU"
 }
 
-selection=`echo -e "Poweroff\nReboot\nExit Hyprland\n" | rofi_cmd`
+selection=`echo -e "Poweroff\nReboot\nLock Screen\nExit Hyprland\n" | rofi_cmd`
 
 case ${selection} in
     "Poweroff")
@@ -20,6 +20,9 @@ case ${selection} in
         ;;
     "Reboot")
         reboot
+        ;;
+    "Lock Screen")
+        hyprlock
         ;;
     "Exit Hyprland")
         killall Hyprland
