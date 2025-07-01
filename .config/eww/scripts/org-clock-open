@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Open current clocked task, or otherwise org-agenda in a single frame
+emacsclient --create-frame --eval '
+(if (org-clocking-p)
+    (org-clock-goto)
+  (run-at-time "0.1 sec" nil
+               (lambda ()
+                 (org-agenda nil "n")
+                 (delete-other-windows))))'

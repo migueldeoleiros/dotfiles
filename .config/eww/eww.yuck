@@ -2,7 +2,11 @@
 
 (defwidget bar []
   (box :orientation "h" 
-       (time)
+       (box :orientation "h"
+            :spacing 40
+            :space-evenly false
+            (time)
+            (button :class "task" :onclick "scripts/org-clock-open" org-clock))
        (workspaces)
        (sidestuff)
    ))
@@ -31,7 +35,7 @@
                :class {audio == "on" ? "volume" : "volume-mute"}
                :onchange "amixer sset Master {}%")
        (metric :label "󰁹"
-               :value {EWW_BATTERY.BAT1.capacity}
+               :value {EWW_BATTERY.BAT0.capacity}
                :class "battery"
                :onchange "")
   ))
@@ -76,6 +80,9 @@
 
 (defpoll audio :interval "0.5s"
   "scripts/ismute")
+
+(defpoll org-clock :interval "1s"
+  "scripts/org-clock")
 
 (defpoll net :interval "2s" "scripts/network")
 (defwidget network []
