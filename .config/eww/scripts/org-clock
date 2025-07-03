@@ -2,9 +2,8 @@
 
 # Get current clocked TODO from emacsclient
 emacsclient --eval '
-(or
- (when (org-clocking-p)
-   (format "%s (%s)"
-           org-clock-heading
-           (org-format-time-string "%H:%M" org-clock-start-time)))
- "No task ongoing")' | sed 's/^"//;s/"$//'
+(if (and (fboundp '\''org-clocking-p) (org-clocking-p))
+    (format "%s (%s)"
+            org-clock-heading
+            (org-format-time-string "%H:%M" org-clock-start-time))
+  "No ongoing task")' | sed 's/^"//;s/"$//'
